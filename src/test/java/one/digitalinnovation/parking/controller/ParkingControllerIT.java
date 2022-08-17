@@ -13,7 +13,7 @@ import org.springframework.http.MediaType;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-class ParkingControllerIT {
+class ParkingControllerIT extends AbstractContainerBase {
 
     @LocalServerPort
     private int randomPort;
@@ -30,11 +30,11 @@ class ParkingControllerIT {
                 .when()
                 .get("/parking")
                 .then()
-                .statusCode(HttpStatus.SC_OK)
+                .statusCode(HttpStatus.SC_OK);
     }
 
     @Test
-    void whenCreateThenCheckIsCrteated() {
+    void whenCreateThenCheckIsCreated() {
 
         var createDTO = new ParkingCreateDTO();
         createDTO.setColor("Amarela");
